@@ -16,8 +16,17 @@ var configurationRouter = require('./routes/configuration')
 var auth_tmdb_Router = require('./routes/auth_tmdb')
 var certificationRouter = require('./routes/certifications')
 
+// GiantBomb
+var giantGamesRouter = require('./routes/giant_games')
+
 // openweather.org
 var weatherRouter = require('./routes/weather');
+
+// Invoiced Generator
+var invoicedRouter = require('./routes/invoiced');
+
+// Steam API
+var steam_store_router = require('./routes/steam');
 
 var app = express();
 
@@ -45,6 +54,14 @@ app.use('/certification', certificationRouter);
 // openweather router
 app.use('/weather', weatherRouter);
 
+// GiantBomb router
+app.use('/giantbomb/api', giantGamesRouter);
+
+// Invoiced router
+app.use('/invoiced', invoicedRouter);
+
+// Steam router
+app.use('/steam', steam_store_router);
 
 // Database Connection
 mongodb.on('error', console.error.bind(console, 'MongoDB Connection error: '))
